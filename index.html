@@ -1,0 +1,1330 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>YUZU（ユズ）｜出張トリミング｜いつもの場所で、いつもの安心。</title>
+<meta name="description" content="YUZUは、ご自宅にトリマーがお伺いする出張トリミングサービスです。移動のストレスなく、いつもの場所で、毎回同じトリマーが一頭ずつ丁寧に施術します。シニア犬・怖がりな犬も安心。">
+<meta name="keywords" content="出張トリミング,トリミング,自宅,犬,シニア犬,LINE予約">
+<link rel="canonical" href="https://yuzu-trimming.example.com/">
+
+<!-- OGP -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="YUZU（ユズ）｜出張トリミング">
+<meta property="og:description" content="いつもの場所で、いつもの安心。ご自宅にお伺いする、やさしい出張トリミング。">
+<meta property="og:url" content="https://yuzu-trimming.example.com/">
+<meta property="og:site_name" content="YUZU 出張トリミング">
+<meta property="og:image" content="https://yuzu-trimming.example.com/ogp.png">
+<meta property="og:locale" content="ja_JP">
+<meta name="twitter:card" content="summary_large_image">
+
+<!-- favicon (inline SVG yuzu mark) -->
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='36' r='24' fill='%23F6C3AA'/%3E%3Cpath d='M32 14c-2 4-2 8 0 10 2-2 2-6 0-10z' fill='%23CFA58A'/%3E%3C/svg%3E">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Noto+Sans+JP:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --primary:#F6C3AA;
+  --secondary:#FFFFFF;
+  --bg:#FFF9F6;
+  --bg-soft:#FBEDE6;
+  --accent:#CFA58A;
+  --accent-deep:#B98B6C;
+  --text:#444444;
+  --text-light:#8A8078;
+  --shadow: 0 12px 32px -12px rgba(184,138,105,0.28);
+  --shadow-sm: 0 6px 18px -8px rgba(184,138,105,0.22);
+  --radius-lg:24px;
+  --radius-md:16px;
+  --radius-full:9999px;
+  --maxw:1200px;
+  --ease: cubic-bezier(.22,.61,.36,1);
+}
+
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+@media (prefers-reduced-motion: reduce){
+  html{scroll-behavior:auto;}
+  *{animation-duration:0.001ms !important; transition-duration:0.001ms !important;}
+}
+
+body{
+  font-family:"Noto Sans JP","Poppins",sans-serif;
+  color:var(--text);
+  background:var(--bg);
+  line-height:1.9;
+  font-weight:400;
+  -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+}
+
+img,svg{display:block;max-width:100%;}
+a{color:inherit;text-decoration:none;}
+ul{list-style:none;}
+button{font-family:inherit;cursor:pointer;border:none;background:none;color:inherit;}
+h1,h2,h3,h4{line-height:1.5;font-weight:700;}
+
+.container{max-width:var(--maxw);margin:0 auto;padding:0 24px;}
+.eyebrow{
+  font-family:"Poppins",sans-serif;
+  font-size:0.72rem;
+  letter-spacing:0.22em;
+  text-transform:uppercase;
+  color:var(--accent-deep);
+  font-weight:600;
+  display:inline-flex;
+  align-items:center;
+  gap:10px;
+}
+.eyebrow::before{
+  content:"";
+  width:22px;height:1px;
+  background:var(--accent-deep);
+  display:inline-block;
+}
+
+.section{padding:96px 0;position:relative;}
+.section.alt{background:var(--bg-soft);}
+@media (max-width:768px){.section{padding:64px 0;}}
+
+.section-head{max-width:640px;margin:0 auto 56px;text-align:center;}
+.section-head h2{font-size:clamp(1.6rem,3.4vw,2.35rem);margin-top:14px;}
+.section-head p{color:var(--text-light);margin-top:16px;font-size:0.98rem;}
+
+/* reveal animation */
+.reveal{opacity:0;transform:translateY(28px);transition:opacity .8s var(--ease), transform .8s var(--ease);}
+.reveal.is-visible{opacity:1;transform:translateY(0);}
+.reveal-delay-1{transition-delay:.08s;}
+.reveal-delay-2{transition-delay:.16s;}
+.reveal-delay-3{transition-delay:.24s;}
+.reveal-delay-4{transition-delay:.32s;}
+.reveal-delay-5{transition-delay:.4s;}
+
+/* Buttons */
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:8px;
+  height:56px;padding:0 32px;
+  border-radius:var(--radius-full);
+  font-weight:600;font-size:0.95rem;
+  transition:transform .3s var(--ease), box-shadow .3s var(--ease), background .3s var(--ease);
+  white-space:nowrap;
+}
+.btn-primary{background:var(--accent);color:#fff;box-shadow:var(--shadow-sm);}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:var(--shadow);background:var(--accent-deep);}
+.btn-secondary{background:#fff;color:var(--accent-deep);border:1.5px solid var(--primary);}
+.btn-secondary:hover{transform:translateY(-2px);background:var(--bg-soft);}
+.btn-line{background:#06C755;color:#fff;box-shadow:0 8px 20px -8px rgba(6,199,85,.45);}
+.btn-line:hover{transform:translateY(-2px);background:#05b34c;}
+.btn-sm{height:44px;padding:0 22px;font-size:0.85rem;}
+
+/* icon */
+.icon{width:1em;height:1em;flex-shrink:0;}
+
+/* ===== Header ===== */
+.site-header{
+  position:fixed;top:0;left:0;right:0;z-index:100;
+  background:rgba(255,249,246,0.82);
+  backdrop-filter:blur(10px);
+  -webkit-backdrop-filter:blur(10px);
+  border-bottom:1px solid rgba(207,165,138,0.16);
+  transition:padding .3s var(--ease);
+}
+.site-header .container{
+  display:flex;align-items:center;justify-content:space-between;
+  height:80px;transition:height .3s var(--ease);
+}
+.site-header.shrink .container{height:64px;}
+
+.logo{display:flex;align-items:center;gap:10px;font-family:"Poppins",sans-serif;font-weight:700;font-size:1.35rem;color:var(--accent-deep);}
+.logo .yuzu-mark{width:34px;height:34px;}
+.logo small{display:block;font-family:"Noto Sans JP",sans-serif;font-size:0.62rem;font-weight:500;letter-spacing:0.08em;color:var(--text-light);}
+
+.main-nav{display:flex;align-items:center;gap:30px;}
+.main-nav a{font-size:0.88rem;font-weight:500;position:relative;padding:4px 0;}
+.main-nav a::after{
+  content:"";position:absolute;left:0;bottom:-2px;width:0;height:1.5px;background:var(--accent);
+  transition:width .3s var(--ease);
+}
+.main-nav a:hover::after{width:100%;}
+
+.header-actions{display:flex;align-items:center;gap:12px;}
+.nav-toggle{display:none;width:44px;height:44px;align-items:center;justify-content:center;}
+.nav-toggle span,.nav-toggle span::before,.nav-toggle span::after{
+  content:"";display:block;width:22px;height:2px;background:var(--accent-deep);border-radius:2px;position:relative;transition:.3s var(--ease);
+}
+.nav-toggle span::before{position:absolute;top:-7px;}
+.nav-toggle span::after{position:absolute;top:7px;}
+.nav-toggle.active span{background:transparent;}
+.nav-toggle.active span::before{top:0;transform:rotate(45deg);}
+.nav-toggle.active span::after{top:0;transform:rotate(-45deg);}
+
+@media (max-width:900px){
+  .main-nav{
+    position:fixed;top:64px;left:0;right:0;bottom:0;
+    background:var(--bg);
+    flex-direction:column;justify-content:flex-start;align-items:flex-start;
+    padding:36px 28px;gap:6px;
+    transform:translateX(100%);transition:transform .4s var(--ease);
+    overflow-y:auto;
+  }
+  .main-nav.open{transform:translateX(0);}
+  .main-nav a{width:100%;padding:14px 0;font-size:1.05rem;border-bottom:1px solid var(--bg-soft);}
+  .nav-toggle{display:flex;}
+  .header-actions .btn-line span.long{display:none;}
+}
+
+/* ===== Hero ===== */
+.hero{
+  position:relative;
+  padding:170px 0 100px;
+  overflow:hidden;
+}
+.hero-blob{
+  position:absolute;border-radius:50%;filter:blur(0px);z-index:0;
+}
+.hero-blob-1{width:520px;height:520px;background:radial-gradient(circle at 35% 30%, #FBDCC6, var(--primary) 70%);top:-140px;right:-160px;opacity:.9;}
+.hero-blob-2{width:220px;height:220px;background:var(--bg-soft);bottom:-60px;left:-60px;}
+
+.hero .container{position:relative;z-index:1;display:grid;grid-template-columns:1.05fr 0.95fr;gap:60px;align-items:center;}
+@media (max-width:900px){.hero .container{grid-template-columns:1fr;gap:44px;} .hero{padding:150px 0 72px;}}
+
+.hero-copy h1{
+  font-size:clamp(2.1rem,4.6vw,3.6rem);
+  margin:20px 0 20px;
+  color:#3A3430;
+}
+.hero-copy h1 .accent-word{color:var(--accent-deep);}
+.hero-copy p{color:var(--text-light);font-size:1.02rem;max-width:460px;margin-bottom:36px;}
+.hero-cta{display:flex;gap:16px;flex-wrap:wrap;}
+
+.hero-trust{display:flex;gap:28px;margin-top:44px;flex-wrap:wrap;}
+.hero-trust div{display:flex;align-items:center;gap:10px;font-size:0.86rem;color:var(--text-light);font-weight:500;}
+.hero-trust .icon{color:var(--accent-deep);width:20px;height:20px;}
+
+.hero-visual{position:relative;}
+.hero-photo-frame{
+  position:relative;border-radius:32px;background:#fff;
+  box-shadow:var(--shadow);
+  padding:18px;
+  transform:rotate(-2deg);
+}
+.hero-photo{
+  border-radius:24px;overflow:hidden;aspect-ratio:4/5;
+  background:linear-gradient(160deg,var(--primary),#EFA88A 60%,var(--accent) 130%);
+  display:flex;align-items:center;justify-content:center;position:relative;
+}
+.hero-photo svg{width:62%;}
+.hero-float-card{
+  position:absolute;bottom:-26px;left:-30px;background:#fff;border-radius:20px;
+  box-shadow:var(--shadow);padding:16px 20px;display:flex;align-items:center;gap:12px;
+  transform:rotate(3deg);
+}
+@media (max-width:520px){.hero-float-card{left:-10px;padding:12px 16px;}}
+.hero-float-card .num{font-family:"Poppins",sans-serif;font-weight:700;font-size:1.6rem;color:var(--accent-deep);}
+.hero-float-card .lbl{font-size:0.72rem;color:var(--text-light);line-height:1.4;}
+
+/* ===== Reasons (選ばれる理由) ===== */
+.reasons-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:20px;}
+@media (max-width:980px){.reasons-grid{grid-template-columns:repeat(2,1fr);}}
+@media (max-width:520px){.reasons-grid{grid-template-columns:1fr;}}
+.reason-card{
+  background:#fff;border-radius:var(--radius-md);padding:32px 24px;text-align:center;
+  box-shadow:var(--shadow-sm);transition:transform .35s var(--ease),box-shadow .35s var(--ease);
+}
+.reason-card:hover{transform:translateY(-6px);box-shadow:var(--shadow);}
+.reason-icon{
+  width:56px;height:56px;border-radius:50%;background:var(--bg-soft);
+  display:flex;align-items:center;justify-content:center;margin:0 auto 18px;color:var(--accent-deep);
+}
+.reason-icon .icon{width:26px;height:26px;}
+.reason-card h3{font-size:0.96rem;margin-bottom:8px;}
+.reason-card p{font-size:0.82rem;color:var(--text-light);line-height:1.7;}
+
+/* ===== Service ===== */
+.service-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;}
+@media (max-width:900px){.service-grid{grid-template-columns:1fr;}}
+.service-card{
+  background:#fff;border-radius:var(--radius-lg);padding:36px 30px;box-shadow:var(--shadow-sm);
+  transition:transform .35s var(--ease),box-shadow .35s var(--ease);
+}
+.service-card:hover{transform:translateY(-6px);box-shadow:var(--shadow);}
+.service-card .reason-icon{margin:0 0 20px;}
+.service-card h3{font-size:1.08rem;margin-bottom:12px;}
+.service-card p{font-size:0.87rem;color:var(--text-light);}
+
+/* ===== Price table ===== */
+.price-wrap{background:#fff;border-radius:var(--radius-lg);box-shadow:var(--shadow-sm);overflow:hidden;}
+table.price-table{width:100%;border-collapse:collapse;}
+.price-table thead th{
+  background:var(--accent);color:#fff;font-weight:600;font-size:0.86rem;
+  text-align:left;padding:18px 22px;letter-spacing:.02em;
+}
+.price-table thead th:first-child{border-top-left-radius:0;}
+.price-table tbody td{padding:20px 22px;font-size:0.9rem;border-bottom:1px solid var(--bg-soft);vertical-align:top;}
+.price-table tbody tr:last-child td{border-bottom:none;}
+.price-table tbody tr:nth-child(even){background:var(--bg-soft);}
+.price-table td.breed{font-weight:600;color:#3A3430;}
+.price-table td.price{font-family:"Poppins",sans-serif;font-weight:600;color:var(--accent-deep);white-space:nowrap;}
+.price-table td.note{color:var(--text-light);font-size:0.82rem;}
+.price-note{margin-top:24px;font-size:0.82rem;color:var(--text-light);text-align:center;}
+@media (max-width:640px){
+  .price-table thead{display:none;}
+  .price-table, .price-table tbody, .price-table tr, .price-table td{display:block;width:100%;}
+  .price-table tr{padding:18px 20px;border-bottom:1px solid var(--bg-soft);}
+  .price-table td{padding:4px 0;border-bottom:none !important;}
+  .price-table td.note::before{content:"備考：";color:var(--accent-deep);}
+  .price-table td.price::before{content:"料金：";color:var(--text-light);font-family:"Noto Sans JP";font-weight:400;}
+}
+
+/* ===== Flow ===== */
+.flow-list{display:grid;grid-template-columns:repeat(6,1fr);gap:0;position:relative;}
+.flow-list::before{
+  content:"";position:absolute;top:28px;left:8%;right:8%;height:1.5px;background:var(--primary);z-index:0;
+}
+@media (max-width:900px){
+  .flow-list{grid-template-columns:1fr;gap:0;}
+  .flow-list::before{top:0;bottom:0;left:28px;width:1.5px;height:auto;right:auto;}
+}
+.flow-item{position:relative;z-index:1;text-align:center;padding:0 12px 40px;}
+@media (max-width:900px){.flow-item{text-align:left;padding:0 0 36px 68px;min-height:1px;}}
+.flow-num{
+  width:56px;height:56px;border-radius:50%;background:#fff;border:1.5px solid var(--primary);
+  display:flex;align-items:center;justify-content:center;margin:0 auto 18px;
+  font-family:"Poppins",sans-serif;font-weight:700;color:var(--accent-deep);font-size:1.15rem;
+  box-shadow:0 0 0 6px var(--bg);
+}
+@media (max-width:900px){.flow-num{position:absolute;left:0;top:0;margin:0;}}
+.flow-item h3{font-size:0.92rem;margin-bottom:8px;}
+.flow-item p{font-size:0.78rem;color:var(--text-light);}
+
+/* ===== Area ===== */
+.area-layout{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center;}
+@media (max-width:900px){.area-layout{grid-template-columns:1fr;}}
+.map-placeholder{
+  border-radius:var(--radius-lg);overflow:hidden;box-shadow:var(--shadow-sm);
+  background:
+    repeating-linear-gradient(0deg, var(--bg-soft) 0 1px, transparent 1px 44px),
+    repeating-linear-gradient(90deg, var(--bg-soft) 0 1px, transparent 1px 44px),
+    var(--bg);
+  aspect-ratio:4/3;position:relative;display:flex;align-items:center;justify-content:center;
+}
+.map-placeholder .pin{color:var(--accent-deep);width:52px;height:52px;}
+.map-placeholder .ring{
+  position:absolute;width:180px;height:180px;border-radius:50%;border:2px dashed var(--primary);
+}
+.area-list{margin-top:22px;display:flex;flex-wrap:wrap;gap:10px;}
+.area-tag{
+  background:var(--bg-soft);color:var(--accent-deep);padding:8px 18px;border-radius:var(--radius-full);
+  font-size:0.8rem;font-weight:500;
+}
+
+/* ===== Trimmer ===== */
+.trimmer-card{
+  display:grid;grid-template-columns:0.8fr 1.2fr;gap:48px;align-items:center;
+  background:#fff;border-radius:var(--radius-lg);box-shadow:var(--shadow-sm);padding:48px;
+}
+@media (max-width:900px){.trimmer-card{grid-template-columns:1fr;padding:32px 24px;}}
+.trimmer-photo{
+  aspect-ratio:1/1;border-radius:50%;
+  background:linear-gradient(160deg,var(--primary),var(--accent));
+  display:flex;align-items:center;justify-content:center;
+  box-shadow:var(--shadow-sm);
+}
+.trimmer-photo svg{width:56%;}
+.trimmer-name{font-size:1.3rem;margin:4px 0 4px;}
+.trimmer-role{color:var(--accent-deep);font-size:0.82rem;font-weight:600;letter-spacing:.04em;}
+.trimmer-bio{margin-top:18px;color:var(--text-light);font-size:0.92rem;}
+.trimmer-quote{
+  margin-top:22px;padding:18px 22px;background:var(--bg-soft);border-radius:var(--radius-md);
+  font-size:0.9rem;color:#3A3430;position:relative;
+}
+.trimmer-badges{display:flex;gap:10px;margin-top:20px;flex-wrap:wrap;}
+.trimmer-badge{font-size:0.74rem;background:var(--bg-soft);color:var(--accent-deep);padding:6px 14px;border-radius:var(--radius-full);font-weight:500;}
+
+/* ===== Gallery ===== */
+.gallery-grid{columns:2;column-gap:18px;}
+@media (min-width:768px){.gallery-grid{columns:3;column-gap:22px;}}
+.gallery-item{
+  break-inside:avoid;margin-bottom:18px;border-radius:var(--radius-md);overflow:hidden;
+  box-shadow:var(--shadow-sm);cursor:pointer;position:relative;
+}
+@media (min-width:768px){.gallery-item{margin-bottom:22px;}}
+.gallery-item .thumb{
+  width:100%;display:flex;align-items:center;justify-content:center;
+  transition:transform .5s var(--ease);
+}
+.gallery-item:hover .thumb{transform:scale(1.05);}
+.gallery-item .thumb svg{width:46%;}
+.gallery-item .cap{
+  position:absolute;left:0;right:0;bottom:0;padding:14px 16px;
+  background:linear-gradient(0deg,rgba(58,52,48,.55),transparent);
+  color:#fff;font-size:0.76rem;font-weight:500;opacity:0;transition:opacity .3s var(--ease);
+}
+.gallery-item:hover .cap{opacity:1;}
+
+.lightbox{
+  position:fixed;inset:0;background:rgba(58,52,48,0.82);z-index:200;
+  display:none;align-items:center;justify-content:center;padding:24px;
+}
+.lightbox.open{display:flex;}
+.lightbox-inner{background:#fff;border-radius:var(--radius-lg);max-width:520px;width:100%;overflow:hidden;position:relative;}
+.lightbox-photo{aspect-ratio:4/3;display:flex;align-items:center;justify-content:center;}
+.lightbox-photo svg{width:44%;}
+.lightbox-cap{padding:20px 26px 26px;font-size:0.88rem;color:var(--text-light);}
+.lightbox-close{
+  position:absolute;top:14px;right:14px;width:38px;height:38px;border-radius:50%;
+  background:rgba(255,255,255,.9);display:flex;align-items:center;justify-content:center;
+  box-shadow:var(--shadow-sm);z-index:2;
+}
+
+/* ===== Testimonials ===== */
+.testi-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;}
+@media (max-width:900px){.testi-grid{grid-template-columns:1fr;}}
+.testi-card{background:#fff;border-radius:var(--radius-lg);padding:30px 28px;box-shadow:var(--shadow-sm);}
+.testi-stars{display:flex;gap:4px;color:var(--primary);margin-bottom:16px;}
+.testi-stars .icon{width:16px;height:16px;}
+.testi-card p.quote{font-size:0.9rem;color:#3A3430;margin-bottom:20px;}
+.testi-meta{display:flex;align-items:center;gap:12px;}
+.testi-avatar{
+  width:42px;height:42px;border-radius:50%;background:var(--bg-soft);
+  display:flex;align-items:center;justify-content:center;color:var(--accent-deep);
+}
+.testi-avatar .icon{width:20px;height:20px;}
+.testi-meta .name{font-size:0.84rem;font-weight:600;}
+.testi-meta .sub{font-size:0.74rem;color:var(--text-light);}
+
+/* ===== FAQ ===== */
+.faq-list{max-width:760px;margin:0 auto;}
+.faq-item{background:#fff;border-radius:var(--radius-md);margin-bottom:14px;box-shadow:var(--shadow-sm);overflow:hidden;}
+.faq-q{
+  width:100%;display:flex;align-items:center;justify-content:space-between;gap:16px;
+  padding:22px 26px;text-align:left;font-weight:600;font-size:0.94rem;
+}
+.faq-q .plus{
+  width:26px;height:26px;border-radius:50%;background:var(--bg-soft);color:var(--accent-deep);
+  display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:transform .35s var(--ease);
+}
+.faq-item.open .faq-q .plus{transform:rotate(135deg);}
+.faq-a{max-height:0;overflow:hidden;transition:max-height .4s var(--ease);}
+.faq-a p{padding:0 26px 24px;font-size:0.86rem;color:var(--text-light);}
+
+/* ===== Contact ===== */
+.contact-layout{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:start;}
+@media (max-width:900px){.contact-layout{grid-template-columns:1fr;}}
+.contact-quick{display:flex;flex-direction:column;gap:16px;margin-bottom:32px;}
+.quick-card{
+  display:flex;align-items:center;gap:16px;background:#fff;border-radius:var(--radius-md);
+  padding:20px 22px;box-shadow:var(--shadow-sm);transition:transform .3s var(--ease);
+}
+.quick-card:hover{transform:translateY(-3px);}
+.quick-card .qi{
+  width:48px;height:48px;border-radius:50%;background:var(--bg-soft);color:var(--accent-deep);
+  display:flex;align-items:center;justify-content:center;flex-shrink:0;
+}
+.quick-card .qi .icon{width:22px;height:22px;}
+.quick-card .qt{font-size:0.78rem;color:var(--text-light);}
+.quick-card .qv{font-size:1rem;font-weight:600;color:#3A3430;}
+
+.contact-form{background:#fff;border-radius:var(--radius-lg);box-shadow:var(--shadow-sm);padding:36px;}
+.form-row{margin-bottom:20px;}
+.form-row label{display:block;font-size:0.8rem;font-weight:600;margin-bottom:8px;color:#3A3430;}
+.form-row input,.form-row select,.form-row textarea{
+  width:100%;padding:14px 16px;border-radius:12px;border:1.5px solid var(--bg-soft);
+  background:var(--bg);font-family:inherit;font-size:0.9rem;color:var(--text);
+  transition:border-color .3s var(--ease);
+}
+.form-row input:focus,.form-row select:focus,.form-row textarea:focus{
+  outline:none;border-color:var(--primary);
+}
+.form-row textarea{resize:vertical;min-height:110px;}
+.form-note{font-size:0.76rem;color:var(--text-light);margin-top:16px;}
+
+.insta-strip{display:flex;align-items:center;justify-content:center;gap:10px;margin-top:16px;font-size:0.85rem;color:var(--text-light);}
+.insta-strip .icon{width:18px;height:18px;color:var(--accent-deep);}
+
+/* ===== Instagram embed ===== */
+.insta-embed-wrap{
+  background:#fff;border-radius:var(--radius-lg);box-shadow:var(--shadow-sm);
+  padding:16px;max-width:900px;margin:0 auto;
+}
+.insta-embed-wrap iframe{width:100%;min-height:420px;border:0;border-radius:var(--radius-md);display:block;}
+.insta-follow-btn{display:flex;width:max-content;margin:28px auto 0;}
+
+/* ===== Calendar ===== */
+.cal-wrap{max-width:640px;margin:0 auto;background:#fff;border-radius:var(--radius-lg);box-shadow:var(--shadow-sm);padding:32px;}
+@media (max-width:560px){.cal-wrap{padding:22px 16px;}}
+.cal-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:22px;}
+.cal-head h3{font-size:1.05rem;}
+.cal-nav{
+  width:38px;height:38px;border-radius:50%;background:var(--bg-soft);color:var(--accent-deep);
+  display:flex;align-items:center;justify-content:center;transition:background .3s var(--ease);
+}
+.cal-nav:hover{background:var(--primary);color:#fff;}
+.cal-nav .icon{width:18px;height:18px;}
+.cal-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:6px;}
+.cal-dow{text-align:center;font-size:0.72rem;color:var(--text-light);font-weight:600;padding-bottom:8px;}
+.cal-day{
+  aspect-ratio:1/1;display:flex;flex-direction:column;align-items:center;justify-content:center;
+  border-radius:12px;font-size:0.82rem;position:relative;background:var(--bg);color:var(--text-light);
+}
+.cal-day.empty{background:transparent;}
+.cal-day .d{font-family:"Poppins",sans-serif;font-weight:600;}
+.cal-day .dot{width:6px;height:6px;border-radius:50%;margin-top:4px;}
+.cal-day.available{background:#fff;color:#3A3430;border:1.5px solid var(--bg-soft);cursor:pointer;}
+.cal-day.available .dot{background:#8FBF8A;}
+.cal-day.available:hover{border-color:var(--primary);transform:translateY(-2px);}
+.cal-day.few{background:#fff;color:#3A3430;border:1.5px solid var(--primary);cursor:pointer;}
+.cal-day.few .dot{background:var(--primary);}
+.cal-day.full{background:var(--bg-soft);color:#C4B6AC;}
+.cal-day.full .dot{background:#C4B6AC;}
+.cal-day.closed{background:transparent;color:#D9CFC6;}
+.cal-day.closed .dot{background:#D9CFC6;}
+.cal-day.today .d{text-decoration:underline;text-underline-offset:3px;}
+.cal-day{transition:transform .25s var(--ease), border-color .25s var(--ease);}
+.cal-legend{display:flex;flex-wrap:wrap;gap:16px;justify-content:center;margin-top:22px;font-size:0.76rem;color:var(--text-light);}
+.cal-legend span{display:flex;align-items:center;gap:6px;}
+.cal-legend .dot{width:8px;height:8px;border-radius:50%;display:inline-block;}
+.dot-available{background:#8FBF8A;}
+.dot-few{background:var(--primary);}
+.dot-full{background:#C4B6AC;}
+.dot-closed{background:#D9CFC6;}
+.cal-note{text-align:center;font-size:0.78rem;color:var(--text-light);margin-top:18px;}
+
+/* ===== Footer ===== */
+.site-footer{background:#4A3F37;color:#F3E9E1;padding:64px 0 28px;}
+.footer-top{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:40px;margin-bottom:48px;}
+@media (max-width:900px){.footer-top{grid-template-columns:1fr 1fr;}}
+@media (max-width:560px){.footer-top{grid-template-columns:1fr;}}
+.footer-logo{display:flex;align-items:center;gap:10px;font-family:"Poppins",sans-serif;font-weight:700;font-size:1.3rem;margin-bottom:14px;}
+.footer-logo .yuzu-mark{width:30px;height:30px;}
+.site-footer p{font-size:0.82rem;color:#D9C9BE;line-height:1.85;}
+.site-footer h4{font-size:0.82rem;letter-spacing:.05em;color:#F3E9E1;margin-bottom:16px;}
+.footer-list li{margin-bottom:10px;}
+.footer-list a{font-size:0.84rem;color:#D9C9BE;transition:color .3s var(--ease);}
+.footer-list a:hover{color:#fff;}
+.footer-list li{display:flex;align-items:center;gap:8px;}
+.footer-list .icon{width:16px;height:16px;color:var(--primary);flex-shrink:0;}
+.footer-social{display:flex;gap:12px;margin-top:16px;}
+.footer-social a{
+  width:38px;height:38px;border-radius:50%;background:rgba(255,255,255,.08);
+  display:flex;align-items:center;justify-content:center;transition:background .3s var(--ease);
+}
+.footer-social a:hover{background:var(--accent);}
+.footer-social .icon{width:17px;height:17px;color:#F3E9E1;}
+.footer-bottom{border-top:1px solid rgba(255,255,255,.1);padding-top:24px;text-align:center;font-size:0.74rem;color:#B9AA9F;}
+
+/* Back to top */
+.to-top{
+  position:fixed;right:22px;bottom:22px;width:48px;height:48px;border-radius:50%;
+  background:var(--accent);color:#fff;display:flex;align-items:center;justify-content:center;
+  box-shadow:var(--shadow);opacity:0;pointer-events:none;transform:translateY(12px);
+  transition:opacity .3s var(--ease), transform .3s var(--ease);z-index:90;
+}
+.to-top.show{opacity:1;pointer-events:auto;transform:translateY(0);}
+.to-top .icon{width:20px;height:20px;}
+
+/* sticky mobile LINE bar */
+.mobile-cta-bar{
+  display:none;position:fixed;left:0;right:0;bottom:0;z-index:95;
+  background:#fff;padding:12px 16px;box-shadow:0 -8px 24px -10px rgba(184,138,105,.35);
+  gap:10px;
+}
+@media (max-width:640px){.mobile-cta-bar{display:flex;}}
+.mobile-cta-bar .btn{flex:1;height:48px;font-size:0.86rem;}
+</style>
+</head>
+<body>
+
+<!-- ============ HEADER ============ -->
+<header class="site-header" id="siteHeader">
+  <div class="container">
+    <a href="#top" class="logo">
+      <svg class="yuzu-mark" viewBox="0 0 64 64"><circle cx="32" cy="36" r="24" fill="var(--primary)"/><path d="M32 14c-2 4-2 8 0 10 2-2 2-6 0-10z" fill="var(--accent)"/></svg>
+      <span>YUZU<small>出張トリミング</small></span>
+    </a>
+    <nav class="main-nav" id="mainNav">
+      <a href="#service">サービス</a>
+      <a href="#price">料金</a>
+      <a href="#flow">流れ</a>
+      <a href="#area">対応エリア</a>
+      <a href="#trimmer">トリマー紹介</a>
+      <a href="#gallery">ギャラリー</a>
+      <a href="#calendar">空き状況</a>
+      <a href="#voice">お客様の声</a>
+      <a href="#faq">FAQ</a>
+      <a href="#contact">お問い合わせ</a>
+    </nav>
+    <div class="header-actions">
+      <a href="#contact" class="btn btn-line btn-sm">
+        <svg class="icon" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 5.94 2 10.7c0 3.02 2 5.66 5 7.24-.13.5-.72 2.6-.82 3.02-.13.53.2.52.42.38.17-.11 2.7-1.83 3.8-2.58.83.12 1.7.18 2.6.18 5.52 0 10-3.94 10-8.7C23 5.94 18.52 2 12 2z"/></svg>
+        <span class="long">LINEで相談する</span>
+      </a>
+      <button class="nav-toggle" id="navToggle" aria-label="メニュー"><span></span></button>
+    </div>
+  </div>
+</header>
+
+<div id="top"></div>
+
+<!-- ============ HERO ============ -->
+<section class="hero">
+  <span class="hero-blob hero-blob-1"></span>
+  <span class="hero-blob hero-blob-2"></span>
+  <div class="container">
+    <div class="hero-copy reveal is-visible">
+      <span class="eyebrow">MOBILE DOG GROOMING</span>
+      <h1>おうちで叶える、<br><span class="accent-word">やさしいトリミング。</span></h1>
+      <p>いつもの場所で、いつもの安心を。経験豊富なトリマーがご自宅にお伺いし、移動のストレスなく、愛犬のペースに合わせて一頭ずつ丁寧に施術します。</p>
+      <div class="hero-cta">
+        <a href="#contact" class="btn btn-line">
+          <svg class="icon" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 5.94 2 10.7c0 3.02 2 5.66 5 7.24-.13.5-.72 2.6-.82 3.02-.13.53.2.52.42.38.17-.11 2.7-1.83 3.8-2.58.83.12 1.7.18 2.6.18 5.52 0 10-3.94 10-8.7C23 5.94 18.52 2 12 2z"/></svg>
+          LINEで相談する
+        </a>
+        <a href="#price" class="btn btn-secondary">料金を見る</a>
+      </div>
+      <div class="hero-trust">
+        <div><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" stroke-linecap="round" stroke-linejoin="round"/></svg>毎回同じトリマー</div>
+        <div><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 3l7 4v5c0 4.5-3 8.5-7 9-4-.5-7-4.5-7-9V7l7-4z"/></svg>ご自宅だから安心</div>
+        <div><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.5 2"/></svg>シニア犬も対応</div>
+      </div>
+    </div>
+    <div class="hero-visual reveal reveal-delay-2 is-visible">
+      <div class="hero-photo-frame">
+        <div class="hero-photo">
+          <svg viewBox="0 0 200 200" fill="none">
+            <path d="M60 130c-8-30 6-55 40-55s48 25 40 55c-4 16-20 30-40 30s-36-14-40-30z" fill="#fff" opacity=".92"/>
+            <circle cx="78" cy="98" r="6" fill="#4A3F37"/>
+            <circle cx="122" cy="98" r="6" fill="#4A3F37"/>
+            <path d="M90 116c4 6 16 6 20 0" stroke="#4A3F37" stroke-width="3" stroke-linecap="round" fill="none"/>
+            <path d="M55 90c-10-8-14-22-8-30" stroke="#fff" stroke-width="8" stroke-linecap="round" opacity=".92"/>
+            <path d="M145 90c10-8 14-22 8-30" stroke="#fff" stroke-width="8" stroke-linecap="round" opacity=".92"/>
+          </svg>
+        </div>
+      </div>
+      <div class="hero-float-card">
+        <span class="num">98%</span>
+        <span class="lbl">飼い主様<br>満足度</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ REASONS ============ -->
+<section class="section" id="reasons">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow">WHY YUZU</span>
+      <h2>選ばれる理由</h2>
+      <p>「いつもの場所で、いつもの安心。」を大切に、犬にも飼い主様にもやさしいトリミングをお届けします。</p>
+    </div>
+    <div class="reasons-grid">
+      <div class="reason-card reveal">
+        <div class="reason-icon"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="8" r="4"/><path d="M4 21c1-4.5 4.5-7 8-7s7 2.5 8 7"/></svg></div>
+        <h3>毎回同じトリマー</h3>
+        <p>いつも同じ人が担当するから、犬も飼い主様も安心して任せられます。</p>
+      </div>
+      <div class="reason-card reveal reveal-delay-1">
+        <div class="reason-icon"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <h3>一頭ずつ丁寧に施術</h3>
+        <p>一日に何頭も詰め込まず、一頭ごとにゆっくり向き合います。</p>
+      </div>
+      <div class="reason-card reveal reveal-delay-2">
+        <div class="reason-icon"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 3l7 4v5c0 4.5-3 8.5-7 9-4-.5-7-4.5-7-9V7l7-4z"/></svg></div>
+        <h3>ご自宅だから安心</h3>
+        <p>移動によるストレスがなく、慣れた環境でリラックスして施術を受けられます。</p>
+      </div>
+      <div class="reason-card reveal reveal-delay-3">
+        <div class="reason-icon"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.5 2"/></svg></div>
+        <h3>シニア犬も対応</h3>
+        <p>体力に配慮しながら、無理のないペースで施術いたします。</p>
+      </div>
+      <div class="reason-card reveal reveal-delay-4">
+        <div class="reason-icon"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 12c4-6 12-6 16 0-4 6-12 6-16 0z"/><circle cx="12" cy="12" r="2.4"/></svg></div>
+        <h3>犬のペースを大切に</h3>
+        <p>怖がりな子も、無理に急かさずそのペースに合わせて進めます。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SERVICE ============ -->
+<section class="section alt" id="service">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow">SERVICE</span>
+      <h2>サービス内容</h2>
+      <p>シャンプーからカットまで、愛犬の毛質や体調に合わせてご提案します。</p>
+    </div>
+    <div class="service-grid">
+      <div class="service-card reveal">
+        <div class="reason-icon"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M7 3v4M12 3v4M17 3v4M5 9h14l-1.5 10a2 2 0 0 1-2 1.7H8.5a2 2 0 0 1-2-1.7L5 9z"/></svg></div>
+        <h3>シャンプー＆トリートメント</h3>
+        <p>低刺激シャンプーを使用し、皮膚と被毛を優しく洗い上げます。仕上げのトリートメントで手触りもふんわりと。</p>
+      </div>
+      <div class="service-card reveal reveal-delay-1">
+        <div class="reason-icon"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M6 6l12 12M18 6L6 18"/></svg></div>
+        <h3>カット・部分カット</h3>
+        <p>犬種やお好みのスタイルに合わせてカット。全身カットだけでなく、気になる部分だけのお手入れも承ります。</p>
+      </div>
+      <div class="service-card reveal reveal-delay-2">
+        <div class="reason-icon"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 12h14M12 5v14"/></svg></div>
+        <h3>爪切り・耳・肛門腺ケア</h3>
+        <p>自宅では手が出しにくい爪切りや耳掃除、肛門腺絞りもまとめてお任せいただけます。</p>
+      </div>
+      <div class="service-card reveal reveal-delay-3">
+        <div class="reason-icon"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <h3>皮膚・被毛ケアのご相談</h3>
+        <p>気になる皮膚トラブルや抜け毛など、日頃のお手入れについてもお気軽にご相談ください。</p>
+      </div>
+      <div class="service-card reveal reveal-delay-4">
+        <div class="reason-icon"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.5 2"/></svg></div>
+        <h3>シニア犬向けやさしいコース</h3>
+        <p>短時間・低負担を意識した施術で、シニア犬にも安心して受けていただけます。</p>
+      </div>
+      <div class="service-card reveal reveal-delay-5">
+        <div class="reason-icon"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 12c4-6 16-6 20 0M4 12c4 6 16 6 20 0"/></svg></div>
+        <h3>多頭飼いのお客様も対応</h3>
+        <p>兄弟犬や多頭飼いのご家庭もまとめてご予約いただけます。詳しくはご相談ください。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PRICE ============ -->
+<section class="section" id="price">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow">PRICE</span>
+      <h2>料金表</h2>
+      <p>犬種・サイズによって料金が異なります。詳しい金額はカウンセリング時にご確認ください。</p>
+    </div>
+    <div class="price-wrap reveal">
+      <table class="price-table">
+        <thead>
+          <tr><th>犬種</th><th>料金（税込）</th><th>備考</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="breed">ロングチワワ/ロングダックス</td>
+            <td class="price">シャンプーコース3,850円～</td>
+            <td class="price">カットコース5,500円～</td>
+          </tr>
+          <tr>
+            <td class="breed">トイプードル/ミニュチュアシュナウザー</td>
+            <td class="price">シャンプーコース5,500円～</td>
+            <td class="price">カットコース7,700円～</td>
+          </tr>
+          <tr>
+            <td class="breed">マルチーズ/ヨーキー</td>
+            <td class="price">シャンプーコース4,400円～</td>
+            <td class="price">カットコース6,600円～</td>
+          </tr>
+          <tr>
+            <td class="breed">シーズー</td>
+            <td class="price">シャンプーコース4,950円～</td>
+            <td class="price">カットコース7,150円～</td>
+          </tr>
+          
+            <p class="price-note">出張費ひと家族1,100円～<br>その他犬種承ります。</p>
+          
+        </tbody>
+      </table>
+    </div>
+    <p class="price-note">※ 毛玉が多い場合や特別なケアが必要な場合は、事前にご相談のうえ追加料金が発生することがあります。<br>※ 出張エリアにより出張費が加算される場合があります。</p>
+  </div>
+</section>
+
+<!-- ============ FLOW ============ -->
+<section class="section alt" id="flow">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow">FLOW</span>
+      <h2>ご利用の流れ</h2>
+      <p>ご予約から施術完了まで、6つのステップでご案内します。</p>
+    </div>
+    <div class="flow-list">
+      <div class="flow-item reveal"><div class="flow-num">1</div><h3>ご相談</h3><p>LINEで気軽にご相談ください。</p></div>
+      <div class="flow-item reveal reveal-delay-1"><div class="flow-num">2</div><h3>日程調整</h3><p>ご希望の日時をすり合わせます。</p></div>
+      <div class="flow-item reveal reveal-delay-2"><div class="flow-num">3</div><h3>ご自宅へ訪問</h3><p>お約束の時間にトリマーがお伺いします。</p></div>
+      <div class="flow-item reveal reveal-delay-3"><div class="flow-num">4</div><h3>カウンセリング</h3><p>愛犬の状態やご希望を丁寧にお伺いします。</p></div>
+      <div class="flow-item reveal reveal-delay-4"><div class="flow-num">5</div><h3>トリミング</h3><p>犬のペースに合わせて施術を行います。</p></div>
+      <div class="flow-item reveal reveal-delay-5"><div class="flow-num">6</div><h3>お会計・ご相談</h3><p>仕上がりをご確認いただき、次回のご相談も。</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ AREA ============ -->
+<section class="section" id="area">
+  <div class="container">
+    <div class="area-layout">
+      <div class="reveal">
+        <span class="eyebrow">SERVICE AREA</span>
+        <h2 style="margin-top:14px;font-size:clamp(1.5rem,3vw,2rem);">対応エリア</h2>
+        <p style="color:var(--text-light);margin-top:16px;">当店では、下記エリアを中心に出張トリミングを承っております。エリア外のお客様も、まずはお気軽にご相談ください。</p>
+        <div class="area-list">
+          <span class="area-tag">◯◯市</span>
+          <span class="area-tag">◯◯区</span>
+          <span class="area-tag">◯◯町</span>
+          <span class="area-tag">近隣エリア 半径15km</span>
+        </div>
+        <a href="#contact" class="btn btn-secondary" style="margin-top:28px;">エリアを問い合わせる</a>
+      </div>
+      <div class="map-placeholder reveal reveal-delay-2">
+        <span class="ring"></span>
+        <svg class="pin" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C7.6 2 4 5.6 4 10c0 6 8 12 8 12s8-6 8-12c0-4.4-3.6-8-8-8zm0 11a3 3 0 110-6 3 3 0 010 6z"/></svg>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ TRIMMER ============ -->
+<section class="section alt" id="trimmer">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow">OUR TRIMMER</span>
+      <h2>トリマー紹介</h2>
+      <p>あなたの愛犬をいつも同じトリマーが担当します。</p>
+    </div>
+    <div class="trimmer-card reveal">
+      <div class="trimmer-photo">
+        <svg viewBox="0 0 100 100" fill="none"><circle cx="50" cy="38" r="18" fill="#fff" opacity=".95"/><path d="M22 88c3-18 14-28 28-28s25 10 28 28" fill="#fff" opacity=".95"/></svg>
+      </div>
+      <div>
+        <span class="trimmer-role">代表トリマー</span>
+        <h3 class="trimmer-name">◯◯ ◯◯</h3>
+        <p class="trimmer-bio">トリミングサロン勤務を経て独立。「移動が苦手な子にも、安心してお手入れを受けてほしい」という思いから、出張トリミングのYUZUを始めました。シニア犬や怖がりな子への対応を得意としています。</p>
+        <div class="trimmer-quote">「その子のペースを大切に、心から安心できる時間をお届けしたいと思っています。」</div>
+        <div class="trimmer-badges">
+          <span class="trimmer-badge">トリマー歴10年以上</span>
+          <span class="trimmer-badge">動物取扱業登録済み</span>
+          <span class="trimmer-badge">シニア犬対応</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ GALLERY ============ -->
+<section class="section" id="gallery">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow">GALLERY</span>
+      <h2>ギャラリー</h2>
+      <p>施術の様子や、仕上がりの一部をご紹介します。写真をタップすると拡大できます。</p>
+    </div>
+    <div class="gallery-grid" id="galleryGrid">
+      <!-- items injected identically in markup for accessibility/SEO -->
+      <div class="gallery-item reveal" data-cap="トリミング後のトイプードル">
+        <div class="thumb" style="aspect-ratio:1/1.15;background:linear-gradient(160deg,#F6C3AA,#EFA88A);">
+          <svg viewBox="0 0 100 100" fill="#fff" opacity=".95"><circle cx="50" cy="45" r="24"/><circle cx="34" cy="34" r="8"/><circle cx="66" cy="34" r="8"/></svg>
+        </div>
+        <div class="cap">トリミング後のトイプードル</div>
+      </div>
+      <div class="gallery-item reveal reveal-delay-1" data-cap="ご自宅での施術風景">
+        <div class="thumb" style="aspect-ratio:1/0.85;background:linear-gradient(160deg,#CFA58A,#B98B6C);">
+          <svg viewBox="0 0 100 100" fill="#fff" opacity=".95"><rect x="20" y="30" width="60" height="34" rx="14"/><circle cx="38" cy="47" r="5" fill="#4A3F37"/><circle cx="62" cy="47" r="5" fill="#4A3F37"/></svg>
+        </div>
+        <div class="cap">ご自宅での施術風景</div>
+      </div>
+      <div class="gallery-item reveal reveal-delay-2" data-cap="爪切り・耳掃除ケア">
+        <div class="thumb" style="aspect-ratio:1/1.25;background:linear-gradient(160deg,#FBDCC6,#F6C3AA);">
+          <svg viewBox="0 0 100 100" fill="#fff" opacity=".95"><path d="M50 20c-16 0-28 14-28 32 0 14 12 26 28 26s28-12 28-26c0-18-12-32-28-32z"/></svg>
+        </div>
+        <div class="cap">爪切り・耳掃除ケア</div>
+      </div>
+      <div class="gallery-item reveal reveal-delay-3" data-cap="柴犬のカットスタイル">
+        <div class="thumb" style="aspect-ratio:1/0.95;background:linear-gradient(160deg,#EFA88A,#CFA58A);">
+          <svg viewBox="0 0 100 100" fill="#fff" opacity=".95"><circle cx="50" cy="50" r="26"/><path d="M30 34l6 12M70 34l-6 12" stroke="#fff" stroke-width="6" stroke-linecap="round"/></svg>
+        </div>
+        <div class="cap">柴犬のカットスタイル</div>
+      </div>
+      <div class="gallery-item reveal reveal-delay-4" data-cap="シニア犬のやさしいケア">
+        <div class="thumb" style="aspect-ratio:1/1.1;background:linear-gradient(160deg,#F6C3AA,#CFA58A);">
+          <svg viewBox="0 0 100 100" fill="#fff" opacity=".95"><ellipse cx="50" cy="50" rx="26" ry="22"/></svg>
+        </div>
+        <div class="cap">シニア犬のやさしいケア</div>
+      </div>
+      <div class="gallery-item reveal reveal-delay-5" data-cap="仕上がりのふわふわ被毛">
+        <div class="thumb" style="aspect-ratio:1/0.8;background:linear-gradient(160deg,#B98B6C,#CFA58A);">
+          <svg viewBox="0 0 100 100" fill="#fff" opacity=".95"><circle cx="50" cy="50" r="28"/></svg>
+        </div>
+        <div class="cap">仕上がりのふわふわ被毛</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="lightbox" id="lightbox">
+  <div class="lightbox-inner">
+    <button class="lightbox-close" id="lightboxClose">
+      <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="var(--accent-deep)" stroke-width="2"><path d="M6 6l12 12M18 6L6 18"/></svg>
+    </button>
+    <div class="lightbox-photo" id="lightboxPhoto" style="background:linear-gradient(160deg,#F6C3AA,#CFA58A);">
+      <svg viewBox="0 0 100 100" fill="#fff" opacity=".95"><circle cx="50" cy="45" r="26"/><circle cx="34" cy="32" r="8"/><circle cx="66" cy="32" r="8"/></svg>
+    </div>
+    <div class="lightbox-cap" id="lightboxCap">キャプション</div>
+  </div>
+</div>
+
+<!-- ============ INSTAGRAM ============ -->
+<section class="section alt" id="instagram">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow">INSTAGRAM</span>
+      <h2>Instagram</h2>
+      <p>日々の施術やおうちでの様子は、Instagramでも発信しています。</p>
+    </div>
+    <div class="insta-embed-wrap reveal">
+      <!--
+        SnapWidget（https://snapwidget.com）の埋め込みです。
+        1) SnapWidgetに無料登録し、Instagramアカウント（@yuzu_trimming）を連携
+        2) 発行されたウィジェットIDを、下のURLの「YOUR_WIDGET_ID」部分に差し替えてください
+        投稿するだけでこのサイトにも自動反映されます。
+      -->
+      <iframe
+        src="https://snapwidget.com/embed/YOUR_WIDGET_ID"
+        class="snapwidget-widget"
+        allowtransparency="true"
+        frameborder="0"
+        scrolling="no"
+        title="Instagram feed"
+        loading="lazy">
+      </iframe>
+    </div>
+    <a href="#" class="btn btn-secondary insta-follow-btn">
+      <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1"/></svg>
+      @yuzu_trimming をフォローする
+    </a>
+  </div>
+</section>
+
+<!-- ============ CALENDAR (空き状況) ============ -->
+<section class="section" id="calendar">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow">AVAILABILITY</span>
+      <h2>ご予約カレンダー（空き状況の目安）</h2>
+      <p>おおよその空き状況です。実際のご予約はLINEにてご確認・調整させていただきます。</p>
+    </div>
+    <div class="cal-wrap reveal">
+      <div class="cal-head">
+        <button class="cal-nav" id="calPrev" aria-label="前の月">
+          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 6l-6 6 6 6"/></svg>
+        </button>
+        <h3 id="calTitle">2026年8月</h3>
+        <button class="cal-nav" id="calNext" aria-label="次の月">
+          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 6l6 6-6 6"/></svg>
+        </button>
+      </div>
+      <div class="cal-grid" id="calGrid"></div>
+      <div class="cal-legend">
+        <span><i class="dot dot-available"></i>空きあり</span>
+        <span><i class="dot dot-few"></i>残りわずか</span>
+        <span><i class="dot dot-full"></i>予約不可</span>
+        <span><i class="dot dot-closed"></i>定休日</span>
+      </div>
+      <p class="cal-note">※ このカレンダーは目安表示です。日付をタップすると、その日の空き状況をLINEでご相談いただけます。</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ TESTIMONIALS ============ -->
+<section class="section alt" id="voice">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow">VOICE</span>
+      <h2>お客様の声</h2>
+      <p>ご利用いただいたお客様からいただいた、うれしいお声をご紹介します。</p>
+    </div>
+    <div class="testi-grid">
+      <div class="testi-card reveal">
+        <div class="testi-stars">★★★★★</div>
+        <p class="quote">「人見知りな子ですが、無理に触られることなく最後までリラックスしていました。自宅なので待ち時間もなく助かります。」</p>
+        <div class="testi-meta">
+          <div class="testi-avatar"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="8" r="4"/><path d="M4 21c1-4.5 4.5-7 8-7s7 2.5 8 7"/></svg></div>
+          <div><div class="name">M.Kさん / トイプードル</div><div class="sub">◯◯市在住</div></div>
+        </div>
+      </div>
+      <div class="testi-card reveal reveal-delay-1">
+        <div class="testi-stars">★★★★★</div>
+        <p class="quote">「シニアになってからサロンでの長時間が心配でしたが、負担の少ない施術をしていただけて安心しました。」</p>
+        <div class="testi-meta">
+          <div class="testi-avatar"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="8" r="4"/><path d="M4 21c1-4.5 4.5-7 8-7s7 2.5 8 7"/></svg></div>
+          <div><div class="name">S.Tさん / 柴犬</div><div class="sub">◯◯区在住</div></div>
+        </div>
+      </div>
+      <div class="testi-card reveal reveal-delay-2">
+        <div class="testi-stars">★★★★★</div>
+        <p class="quote">「毎回同じトリマーさんなので、犬も私も顔なじみで安心。仕上がりもいつも丁寧です。」</p>
+        <div class="testi-meta">
+          <div class="testi-avatar"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="8" r="4"/><path d="M4 21c1-4.5 4.5-7 8-7s7 2.5 8 7"/></svg></div>
+          <div><div class="name">Y.Iさん / チワワ 2頭</div><div class="sub">◯◯町在住</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FAQ ============ -->
+<section class="section" id="faq">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow">FAQ</span>
+      <h2>よくあるご質問</h2>
+    </div>
+    <div class="faq-list">
+      <div class="faq-item reveal">
+        <button class="faq-q">料金に含まれるものは何ですか？<span class="plus"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg></span></button>
+        <div class="faq-a"><p>基本料金には、シャンプー・カット・爪切り・耳掃除が含まれます。コースによって内容が異なりますので、詳しくは料金表をご確認ください。</p></div>
+      </div>
+      <div class="faq-item reveal">
+        <button class="faq-q">対応エリア外ですが相談できますか？<span class="plus"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg></span></button>
+        <div class="faq-a"><p>エリア外の場合でも、状況によりお伺いできることがあります。まずはLINEでお気軽にご相談ください。</p></div>
+      </div>
+      <div class="faq-item reveal">
+        <button class="faq-q">お支払い方法を教えてください<span class="plus"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg></span></button>
+        <div class="faq-a"><p>現金のほか、各種QRコード決済にも対応しております。詳細はご予約時にご確認ください。</p></div>
+      </div>
+      <div class="faq-item reveal">
+        <button class="faq-q">怖がりな犬でも対応してもらえますか？<span class="plus"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg></span></button>
+        <div class="faq-a"><p>はい、可能です。無理に進めず、犬のペースに合わせてゆっくりと施術を行いますので、ご安心ください。</p></div>
+      </div>
+      <div class="faq-item reveal">
+        <button class="faq-q">キャンセルはできますか？<span class="plus"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg></span></button>
+        <div class="faq-a"><p>ご予約の変更・キャンセルは前日までにLINEでご連絡ください。当日キャンセルの場合はキャンセル料が発生する場合があります。</p></div>
+      </div>
+      <div class="faq-item reveal">
+        <button class="faq-q">施術にはどのくらい時間がかかりますか？<span class="plus"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg></span></button>
+        <div class="faq-a"><p>犬種やコース内容によりますが、目安として1〜2時間程度です。事前のカウンセリングでおおよその時間をお伝えします。</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CONTACT ============ -->
+<section class="section alt" id="contact">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow">CONTACT</span>
+      <h2>お問い合わせ</h2>
+      <p>まずはお気軽にご相談ください。LINEでのお問い合わせが一番スムーズです。</p>
+    </div>
+    <div class="contact-layout">
+      <div class="reveal">
+        <div class="contact-quick">
+          <a href="#" class="quick-card">
+            <div class="qi"><svg class="icon" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 5.94 2 10.7c0 3.02 2 5.66 5 7.24-.13.5-.72 2.6-.82 3.02-.13.53.2.52.42.38.17-.11 2.7-1.83 3.8-2.58.83.12 1.7.18 2.6.18 5.52 0 10-3.94 10-8.7C23 5.94 18.52 2 12 2z"/></svg></div>
+            <div><div class="qt">LINEで相談する</div><div class="qv">@yuzu-trimming</div></div>
+          </a>
+          <div class="quick-card">
+            <div class="qi"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.5 2"/></svg></div>
+            <div><div class="qt">営業時間</div><div class="qv">9:00 〜 18:00（不定休）</div></div>
+          </div>
+        </div>
+        <a href="#" class="btn btn-line" style="width:100%;margin-bottom:24px;">
+          <svg class="icon" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 5.94 2 10.7c0 3.02 2 5.66 5 7.24-.13.5-.72 2.6-.82 3.02-.13.53.2.52.42.38.17-.11 2.7-1.83 3.8-2.58.83.12 1.7.18 2.6.18 5.52 0 10-3.94 10-8.7C23 5.94 18.52 2 12 2z"/></svg>
+          友だち追加してLINEで相談する
+        </a>
+        <a href="#area" class="map-placeholder" style="aspect-ratio:16/9;">
+          <span class="ring" style="width:140px;height:140px;"></span>
+          <svg class="pin" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C7.6 2 4 5.6 4 10c0 6 8 12 8 12s8-6 8-12c0-4.4-3.6-8-8-8zm0 11a3 3 0 110-6 3 3 0 010 6z"/></svg>
+        </a>
+      </div>
+
+      <div class="contact-form reveal reveal-delay-2" style="text-align:center;">
+        <div class="reason-icon" style="width:72px;height:72px;margin:0 auto 22px;background:var(--bg-soft);">
+          <svg class="icon" viewBox="0 0 24 24" fill="currentColor" style="width:34px;height:34px;color:#06C755;"><path d="M12 2C6.48 2 2 5.94 2 10.7c0 3.02 2 5.66 5 7.24-.13.5-.72 2.6-.82 3.02-.13.53.2.52.42.38.17-.11 2.7-1.83 3.8-2.58.83.12 1.7.18 2.6.18 5.52 0 10-3.94 10-8.7C23 5.94 18.52 2 12 2z"/></svg>
+        </div>
+        <h3 style="font-size:1.05rem;margin-bottom:12px;">ご予約・ご相談はすべてLINEで承っております</h3>
+        <p style="font-size:0.88rem;color:var(--text-light);margin-bottom:28px;">犬種やご希望のコース、気になる点など、チャット感覚でお気軽にご相談ください。担当トリマーより1〜2営業日以内にご返信します。</p>
+        <a href="#" class="btn btn-line" style="width:100%;">
+          <svg class="icon" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 5.94 2 10.7c0 3.02 2 5.66 5 7.24-.13.5-.72 2.6-.82 3.02-.13.53.2.52.42.38.17-.11 2.7-1.83 3.8-2.58.83.12 1.7.18 2.6.18 5.52 0 10-3.94 10-8.7C23 5.94 18.52 2 12 2z"/></svg>
+          LINEで相談する
+        </a>
+        <p class="form-note">LINE ID：@yuzu-trimming／「トリミング希望」とメッセージいただくとスムーズです。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-top">
+      <div>
+        <div class="footer-logo">
+          <svg class="yuzu-mark" viewBox="0 0 64 64"><circle cx="32" cy="36" r="24" fill="var(--primary)"/><path d="M32 14c-2 4-2 8 0 10 2-2 2-6 0-10z" fill="var(--accent)"/></svg>
+          YUZU
+        </div>
+        <p>いつもの場所で、いつもの安心。<br>ご自宅にお伺いする、やさしい出張トリミングサービスです。</p>
+        <div class="footer-social">
+          <a href="#" aria-label="LINE"><svg class="icon" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 5.94 2 10.7c0 3.02 2 5.66 5 7.24-.13.5-.72 2.6-.82 3.02-.13.53.2.52.42.38.17-.11 2.7-1.83 3.8-2.58.83.12 1.7.18 2.6.18 5.52 0 10-3.94 10-8.7C23 5.94 18.52 2 12 2z"/></svg></a>
+          <a href="#" aria-label="Instagram"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1"/></svg></a>
+        </div>
+      </div>
+      <div>
+        <h4>MENU</h4>
+        <ul class="footer-list">
+          <li><a href="#service">サービス</a></li>
+          <li><a href="#price">料金</a></li>
+          <li><a href="#flow">ご利用の流れ</a></li>
+          <li><a href="#gallery">ギャラリー</a></li>
+          <li><a href="#calendar">空き状況</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>SUPPORT</h4>
+        <ul class="footer-list">
+          <li><a href="#trimmer">トリマー紹介</a></li>
+          <li><a href="#voice">お客様の声</a></li>
+          <li><a href="#faq">FAQ</a></li>
+          <li><a href="#area">対応エリア</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>CONTACT</h4>
+        <ul class="footer-list">
+          <li><svg class="icon" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 5.94 2 10.7c0 3.02 2 5.66 5 7.24-.13.5-.72 2.6-.82 3.02-.13.53.2.52.42.38.17-.11 2.7-1.83 3.8-2.58.83.12 1.7.18 2.6.18 5.52 0 10-3.94 10-8.7C23 5.94 18.52 2 12 2z"/></svg>@yuzu-trimming</li>
+          <li><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.5 2"/></svg>9:00〜18:00（不定休）</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">© 2026 YUZU 出張トリミング. All rights reserved.</div>
+  </div>
+</footer>
+
+<a href="#top" class="to-top" id="toTop" aria-label="トップへ戻る">
+  <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
+</a>
+
+<div class="mobile-cta-bar">
+  <a href="#area" class="btn btn-secondary">対応エリア</a>
+  <a href="#" class="btn btn-line">
+    <svg class="icon" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 5.94 2 10.7c0 3.02 2 5.66 5 7.24-.13.5-.72 2.6-.82 3.02-.13.53.2.52.42.38.17-.11 2.7-1.83 3.8-2.58.83.12 1.7.18 2.6.18 5.52 0 10-3.94 10-8.7C23 5.94 18.52 2 12 2z"/></svg>
+    LINEで相談
+  </a>
+</div>
+
+<script>
+// header shrink
+const header = document.getElementById('siteHeader');
+const toTop = document.getElementById('toTop');
+window.addEventListener('scroll', () => {
+  const y = window.scrollY;
+  header.classList.toggle('shrink', y > 40);
+  toTop.classList.toggle('show', y > 480);
+}, {passive:true});
+
+// mobile nav
+const navToggle = document.getElementById('navToggle');
+const mainNav = document.getElementById('mainNav');
+navToggle.addEventListener('click', () => {
+  navToggle.classList.toggle('active');
+  mainNav.classList.toggle('open');
+});
+mainNav.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+  navToggle.classList.remove('active');
+  mainNav.classList.remove('open');
+}));
+
+// scroll reveal
+const revealEls = document.querySelectorAll('.reveal');
+const io = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      e.target.classList.add('is-visible');
+      io.unobserve(e.target);
+    }
+  });
+}, {threshold:0.12});
+revealEls.forEach(el => io.observe(el));
+
+// FAQ accordion
+document.querySelectorAll('.faq-item').forEach(item => {
+  const q = item.querySelector('.faq-q');
+  const a = item.querySelector('.faq-a');
+  q.addEventListener('click', () => {
+    const isOpen = item.classList.contains('open');
+    document.querySelectorAll('.faq-item.open').forEach(o => {
+      o.classList.remove('open');
+      o.querySelector('.faq-a').style.maxHeight = null;
+    });
+    if (!isOpen) {
+      item.classList.add('open');
+      a.style.maxHeight = a.scrollHeight + 'px';
+    }
+  });
+});
+
+// gallery lightbox
+const lightbox = document.getElementById('lightbox');
+const lightboxPhoto = document.getElementById('lightboxPhoto');
+const lightboxCap = document.getElementById('lightboxCap');
+document.querySelectorAll('.gallery-item').forEach(item => {
+  item.addEventListener('click', () => {
+    const bg = item.querySelector('.thumb').style.background;
+    const svgHTML = item.querySelector('.thumb svg').outerHTML;
+    lightboxPhoto.style.background = bg;
+    lightboxPhoto.innerHTML = svgHTML;
+    lightboxCap.textContent = item.dataset.cap || '';
+    lightbox.classList.add('open');
+  });
+});
+document.getElementById('lightboxClose').addEventListener('click', () => lightbox.classList.remove('open'));
+lightbox.addEventListener('click', (e) => { if (e.target === lightbox) lightbox.classList.remove('open'); });
+document.addEventListener('keydown', (e) => { if (e.key === 'Escape') lightbox.classList.remove('open'); });
+
+// ============ 予約カレンダー（空き状況・Googleスプレッドシート連携） ============
+//
+// 【設定手順】
+// 1) Googleスプレッドシートを新規作成し、1行目にヘッダーを入力：
+//      A1: 日付　　B1: 状況
+// 2) 2行目以降に、日付と状況を1日1行で入力していく（依頼主が毎回ここを更新するだけでOK）
+//      日付の例　　: 2026/8/11　（2026-8-11 でも可）
+//      状況の入力例: 空きあり ／ 残りわずか ／ 予約不可 ／ 定休日
+// 3)「ファイル」→「共有」→「ウェブに公開」を開き、
+//    対象を「該当シート」、形式を「カンマ区切りの値(.csv)」にして公開
+// 4) 発行されたURLをコピーし、下の SHEET_CSV_URL に貼り付ける
+//
+// スプレッドシートを未設定の間や、通信できない場合は、下のサンプルデータで表示されます。
+const SHEET_CSV_URL = ""; // 例: "https://docs.google.com/spreadsheets/d/e/xxxxx/pub?output=csv"
+
+// サンプル／オフライン時のフォールバックデータ
+let calendarAvailability = {
+  "2026-8-3":  "closed",
+  "2026-8-4":  "available",
+  "2026-8-5":  "available",
+  "2026-8-6":  "few",
+  "2026-8-7":  "full",
+  "2026-8-10": "closed",
+  "2026-8-11": "available",
+  "2026-8-12": "available",
+  "2026-8-13": "few",
+  "2026-8-14": "available",
+  "2026-8-17": "closed",
+  "2026-8-18": "available",
+  "2026-8-19": "few",
+  "2026-8-20": "available",
+  "2026-8-21": "available",
+  "2026-8-24": "closed",
+  "2026-8-25": "available",
+  "2026-8-26": "available",
+  "2026-8-27": "few",
+  "2026-8-28": "available",
+  "2026-9-1":  "closed",
+  "2026-9-2":  "available",
+  "2026-9-3":  "available",
+  "2026-9-4":  "few",
+  "2026-9-7":  "closed",
+  "2026-9-8":  "available",
+  "2026-9-9":  "available"
+};
+
+const calStatusMap = {
+  "空きあり":"available", "○":"available", "◯":"available", "空き":"available",
+  "残りわずか":"few", "△":"few", "わずか":"few",
+  "予約不可":"full", "×":"full", "✕":"full", "満了":"full", "満":"full",
+  "定休日":"closed", "休み":"closed", "休":"closed", "定休":"closed"
+};
+
+function calParseDateToKey(raw){
+  const norm = raw.trim().replace(/[年月]/g, '/').replace(/日/g, '').replace(/-/g, '/');
+  const parts = norm.split('/').map(s => parseInt(s, 10)).filter(n => !isNaN(n));
+  if (parts.length < 3) return null;
+  const [y, m, d] = parts;
+  return `${y}-${m}-${d}`;
+}
+
+function calParseCSV(text){
+  const rows = text.trim().split(/\r?\n/).map(r => r.split(','));
+  const data = {};
+  rows.slice(1).forEach(cols => {
+    if (cols.length < 2) return;
+    const key = calParseDateToKey(cols[0].replace(/"/g, ''));
+    const label = cols[1].replace(/"/g, '').trim();
+    const status = calStatusMap[label];
+    if (key && status) data[key] = status;
+  });
+  return data;
+}
+
+async function loadAvailabilityFromSheet(){
+  if (!SHEET_CSV_URL) return; // 未設定ならサンプルデータのまま表示
+  try {
+    const res = await fetch(SHEET_CSV_URL, {cache:'no-store'});
+    if (!res.ok) throw new Error('sheet fetch failed');
+    const text = await res.text();
+    const parsed = calParseCSV(text);
+    if (Object.keys(parsed).length > 0) {
+      calendarAvailability = parsed;
+      renderCalendar();
+    }
+  } catch (err) {
+    console.warn('スプレッドシートの読み込みに失敗したため、サンプルデータを表示しています。', err);
+  }
+}
+
+const calLabels = {available:"空きあり", few:"残りわずか", full:"予約不可", closed:"定休日"};
+const calGrid = document.getElementById('calGrid');
+const calTitle = document.getElementById('calTitle');
+const today = new Date();
+let calYear = today.getFullYear();
+let calMonth = today.getMonth(); // 0-11
+
+function renderCalendar(){
+  calTitle.textContent = `${calYear}年${calMonth + 1}月`;
+  calGrid.innerHTML = '';
+
+  ['日','月','火','水','木','金','土'].forEach(d => {
+    const el = document.createElement('div');
+    el.className = 'cal-dow';
+    el.textContent = d;
+    calGrid.appendChild(el);
+  });
+
+  const firstDay = new Date(calYear, calMonth, 1).getDay();
+  const daysInMonth = new Date(calYear, calMonth + 1, 0).getDate();
+
+  for (let i = 0; i < firstDay; i++) {
+    const empty = document.createElement('div');
+    empty.className = 'cal-day empty';
+    calGrid.appendChild(empty);
+  }
+
+  for (let d = 1; d <= daysInMonth; d++) {
+    const key = `${calYear}-${calMonth + 1}-${d}`;
+    const status = calendarAvailability[key] || 'full';
+    const cell = document.createElement('div');
+    cell.className = `cal-day ${status}`;
+    const isToday = calYear === today.getFullYear() && calMonth === today.getMonth() && d === today.getDate();
+    if (isToday) cell.classList.add('today');
+    cell.innerHTML = `<span class="d">${d}</span><span class="dot"></span>`;
+    cell.title = calLabels[status];
+    if (status === 'available' || status === 'few') {
+      cell.addEventListener('click', () => {
+        document.getElementById('contact').scrollIntoView({behavior:'smooth'});
+      });
+    }
+    calGrid.appendChild(cell);
+  }
+}
+
+document.getElementById('calPrev').addEventListener('click', () => {
+  calMonth--;
+  if (calMonth < 0) { calMonth = 11; calYear--; }
+  renderCalendar();
+});
+document.getElementById('calNext').addEventListener('click', () => {
+  calMonth++;
+  if (calMonth > 11) { calMonth = 0; calYear++; }
+  renderCalendar();
+});
+
+renderCalendar();
+loadAvailabilityFromSheet();
+</script>
+</body>
+</html>

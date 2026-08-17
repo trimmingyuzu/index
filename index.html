@@ -255,29 +255,23 @@ h1,h2,h3,h4{line-height:1.5;font-weight:700;}
 .service-card h3{font-size:1.08rem;margin-bottom:12px;}
 .service-card p{font-size:0.87rem;color:var(--text-light);}
 
-/* ===== Price table ===== */
-.price-wrap{background:#fff;border-radius:var(--radius-lg);box-shadow:var(--shadow-sm);overflow:hidden;}
-table.price-table{width:100%;border-collapse:collapse;}
-.price-table thead th{
-  background:var(--accent);color:#fff;font-weight:600;font-size:0.86rem;
-  text-align:left;padding:18px 22px;letter-spacing:.02em;
+/* ===== Price tiles ===== */
+.price-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;}
+@media (max-width:900px){.price-grid{grid-template-columns:repeat(2,1fr);}}
+@media (max-width:560px){.price-grid{grid-template-columns:1fr;}}
+.price-tile{
+  background:#fff;border-radius:var(--radius-md);padding:26px 26px 20px;
+  box-shadow:var(--shadow-sm);transition:transform .35s var(--ease),box-shadow .35s var(--ease);
 }
-.price-table thead th:first-child{border-top-left-radius:0;}
-.price-table tbody td{padding:20px 22px;font-size:0.9rem;border-bottom:1px solid var(--bg-soft);vertical-align:top;}
-.price-table tbody tr:last-child td{border-bottom:none;}
-.price-table tbody tr:nth-child(even){background:var(--bg-soft);}
-.price-table td.breed{font-weight:600;color:#3A3430;}
-.price-table td.price{font-family:"Poppins",sans-serif;font-weight:600;color:var(--accent-deep);white-space:nowrap;}
-.price-table td.note{color:var(--text-light);font-size:0.82rem;}
+.price-tile:hover{transform:translateY(-6px);box-shadow:var(--shadow);}
+.price-tile h3{font-size:0.96rem;color:#3A3430;margin-bottom:14px;line-height:1.5;}
+.price-line{
+  display:flex;align-items:baseline;justify-content:space-between;gap:12px;
+  font-size:0.84rem;color:var(--text-light);padding:9px 0;border-top:1px dashed var(--bg-soft);
+}
+.price-line:first-of-type{border-top:none;padding-top:0;}
+.price-line .amt{font-family:"Poppins",sans-serif;font-weight:600;color:var(--accent-deep);white-space:nowrap;flex-shrink:0;}
 .price-note{margin-top:24px;font-size:0.82rem;color:var(--text-light);text-align:center;}
-@media (max-width:640px){
-  .price-table thead{display:none;}
-  .price-table, .price-table tbody, .price-table tr, .price-table td{display:block;width:100%;}
-  .price-table tr{padding:18px 20px;border-bottom:1px solid var(--bg-soft);}
-  .price-table td{padding:4px 0;border-bottom:none !important;}
-  .price-table td.note::before{content:"備考：";color:var(--accent-deep);}
-  .price-table td.price::before{content:"料金：";color:var(--text-light);font-family:"Noto Sans JP";font-weight:400;}
-}
 
 /* ===== Flow ===== */
 .flow-list{display:grid;grid-template-columns:repeat(6,1fr);gap:0;position:relative;}
@@ -699,41 +693,39 @@ table.price-table{width:100%;border-collapse:collapse;}
     <div class="section-head reveal">
       <span class="eyebrow">PRICE</span>
       <h2>料金表</h2>
-      <p>犬種・サイズによって料金が異なります。詳しい金額はカウンセリング時にご確認ください。</p>
+      <p>犬種・コースによって料金が異なります。詳しい金額はカウンセリング時にご確認ください。</p>
     </div>
-    <div class="price-wrap reveal">
-      <table class="price-table">
-        <thead>
-          <tr><th>犬種</th><th>料金（税込）</th><th>備考</th></tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td class="breed">ロングチワワ/ロングダックス</td>
-            <td class="price">シャンプーコース3,850円～</td>
-            <td class="price">カットコース5,500円～</td>
-          </tr>
-          <tr>
-            <td class="breed">トイプードル/ミニュチュアシュナウザー</td>
-            <td class="price">シャンプーコース5,500円～</td>
-            <td class="price">カットコース7,700円～</td>
-          </tr>
-          <tr>
-            <td class="breed">マルチーズ/ヨーキー</td>
-            <td class="price">シャンプーコース4,400円～</td>
-            <td class="price">カットコース6,600円～</td>
-          </tr>
-          <tr>
-            <td class="breed">シーズー</td>
-            <td class="price">シャンプーコース4,950円～</td>
-            <td class="price">カットコース7,150円～</td>
-          </tr>
-          
-            <p class="price-note">出張費ひと家族1,100円～<br>その他犬種承ります。</p>
-          
-        </tbody>
-      </table>
+    <div class="price-grid reveal">
+      <div class="price-tile">
+        <h3>ロングチワワ／ロングダックス</h3>
+        <div class="price-line"><span>シャンプーコース</span><span class="amt">¥3,850〜</span></div>
+        <div class="price-line"><span>カットコース</span><span class="amt">¥5,500〜</span></div>
+      </div>
+      <div class="price-tile">
+        <h3>トイプードル／ミニチュアシュナウザー</h3>
+        <div class="price-line"><span>シャンプーコース</span><span class="amt">¥5,500〜</span></div>
+        <div class="price-line"><span>カットコース</span><span class="amt">¥7,700〜</span></div>
+      </div>
+      <div class="price-tile">
+        <h3>マルチーズ／ヨーキー</h3>
+        <div class="price-line"><span>シャンプーコース</span><span class="amt">¥4,400〜</span></div>
+        <div class="price-line"><span>カットコース</span><span class="amt">¥6,600〜</span></div>
+      </div>
+      <div class="price-tile">
+        <h3>シーズー</h3>
+        <div class="price-line"><span>シャンプーコース</span><span class="amt">¥4,950〜</span></div>
+        <div class="price-line"><span>カットコース</span><span class="amt">¥7,150〜</span></div>
+      </div>
+      <div class="price-tile">
+        <h3>出張費</h3>
+        <div class="price-line"><span>ひと家族あたり</span><span class="amt">¥1,100〜</span></div>
+      </div>
+      <div class="price-tile">
+        <h3>シニア犬・多頭飼い</h3>
+        <div class="price-line"><span>体調やご頭数に応じて調整</span><span class="amt">ご相談</span></div>
+      </div>
     </div>
-    <p class="price-note">※ 毛玉が多い場合や特別なケアが必要な場合は、事前にご相談のうえ追加料金が発生することがあります。<br>※ 出張エリアにより出張費が加算される場合があります。</p>
+    <p class="price-note">※ 上記以外の犬種も承っております。お気軽にご相談ください。<br>※ 毛玉が多い場合や特別なケアが必要な場合は、事前にご相談のうえ追加料金が発生することがあります。<br>※ 出張エリアにより出張費が加算される場合があります。</p>
   </div>
 </section>
 
@@ -879,17 +871,25 @@ table.price-table{width:100%;border-collapse:collapse;}
     </div>
     <div class="insta-embed-wrap reveal">
       <!--
-        SnapWidget（https://snapwidget.com）の埋め込みです。
-        1) SnapWidgetに無料登録し、Instagramアカウント（@yuzu_trimming）を連携
-        2) 発行されたウィジェットIDを、下のURLの「YOUR_WIDGET_ID」部分に差し替えてください
-        投稿するだけでこのサイトにも自動反映されます。
+        SociableKIT（https://www.sociablekit.com）の埋め込みです。無料プランは広告なし（小さな「Powered by
+        SociableKIT」表記のみ）ですが、自動更新ではなく手動更新（管理画面でボタンを押す）となる点にご注意ください。
+
+        【設定手順】
+        1) https://www.sociablekit.com で無料登録
+        2) 「Instagram Profile」ウィジェットを新規作成し、Instagramアカウント（@yuzu_trimming）を連携
+           ※ 連携には、Instagramのプロアカウント（ビジネス/クリエイター）への切り替えが必要な場合があります
+        3) レイアウト（グリッド・マソンリー等）や配色をお好みに調整して保存
+        4) 右上の「Embed on Website」→「Website」タブ →「Link」を選択し、表示されたURLをコピー
+        5) 下の iframe の src="" の中身を、コピーしたURLに差し替え
+        6) 新しい投稿を反映したいときは、SociableKITの管理画面でウィジェットを開き、更新ボタンを押してください
+           （無料プランは自動同期非対応のため、手動更新が必要です）
       -->
       <iframe
-        src="https://snapwidget.com/embed/YOUR_WIDGET_ID"
-        class="snapwidget-widget"
-        allowtransparency="true"
+        src="YOUR_SOCIABLEKIT_EMBED_URL"
+        class="sociablekit-widget"
         frameborder="0"
-        scrolling="no"
+        width="100%"
+        height="1000"
         title="Instagram feed"
         loading="lazy">
       </iframe>

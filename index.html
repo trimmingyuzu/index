@@ -6,15 +6,15 @@
 <title>YUZU（ユズ）｜出張トリミング｜いつもの場所で、いつもの安心。</title>
 <meta name="description" content="YUZUは、ご自宅にトリマーがお伺いする出張トリミングサービスです。移動のストレスなく、いつもの場所で、毎回同じトリマーが一頭ずつ丁寧に施術します。シニア犬・怖がりな犬も安心。">
 <meta name="keywords" content="出張トリミング,トリミング,自宅,犬,シニア犬,LINE予約">
-<link rel="canonical" href="https://yuzu-trimming.example.com/">
+<link rel="canonical" href="https://trimmingyuzu.github.io/index/">
 
 <!-- OGP -->
 <meta property="og:type" content="website">
 <meta property="og:title" content="YUZU（ユズ）｜出張トリミング">
 <meta property="og:description" content="いつもの場所で、いつもの安心。ご自宅にお伺いする、やさしい出張トリミング。">
-<meta property="og:url" content="https://yuzu-trimming.example.com/">
+<meta property="og:url" content="https://trimmingyuzu.github.io/index/">
 <meta property="og:site_name" content="YUZU 出張トリミング">
-<meta property="og:image" content="https://yuzu-trimming.example.com/ogp.png">
+<meta property="og:image" content="https://trimmingyuzu.github.io/index/images/ogp.png">
 <meta property="og:locale" content="ja_JP">
 <meta name="twitter:card" content="summary_large_image">
 
@@ -281,7 +281,11 @@ h1,h2,h3,h4{line-height:1.5;font-weight:700;}
 }
 @media (max-width:900px){
   .flow-list{grid-template-columns:1fr;gap:0;}
-  .flow-list::before{top:0;bottom:0;left:28px;width:1.5px;height:auto;right:auto;}
+  .flow-list::before{content:none;}
+  .flow-item{position:relative;}
+  .flow-item:not(:last-child)::after{
+    content:"";position:absolute;top:0;bottom:0;left:27px;width:1.5px;background:var(--primary);z-index:-1;
+  }
 }
 .flow-item{position:relative;z-index:1;text-align:center;padding:0 12px 40px;}
 @media (max-width:900px){.flow-item{text-align:left;padding:0 0 36px 68px;min-height:1px;}}
@@ -289,7 +293,7 @@ h1,h2,h3,h4{line-height:1.5;font-weight:700;}
   width:56px;height:56px;border-radius:50%;background:#fff;border:1.5px solid var(--primary);
   display:flex;align-items:center;justify-content:center;margin:0 auto 18px;
   font-family:"Poppins",sans-serif;font-weight:700;color:var(--accent-deep);font-size:1.15rem;
-  box-shadow:0 0 0 6px var(--bg);
+  box-shadow:0 0 0 6px var(--bg);position:relative;z-index:2;
 }
 @media (max-width:900px){.flow-num{position:absolute;left:0;top:0;margin:0;}}
 .flow-item h3{font-size:0.92rem;margin-bottom:8px;}
@@ -298,18 +302,11 @@ h1,h2,h3,h4{line-height:1.5;font-weight:700;}
 /* ===== Area ===== */
 .area-layout{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center;}
 @media (max-width:900px){.area-layout{grid-template-columns:1fr;}}
-.map-placeholder{
+.map-embed{
   border-radius:var(--radius-lg);overflow:hidden;box-shadow:var(--shadow-sm);
-  background:
-    repeating-linear-gradient(0deg, var(--bg-soft) 0 1px, transparent 1px 44px),
-    repeating-linear-gradient(90deg, var(--bg-soft) 0 1px, transparent 1px 44px),
-    var(--bg);
-  aspect-ratio:4/3;position:relative;display:flex;align-items:center;justify-content:center;
+  aspect-ratio:4/3;position:relative;background:var(--bg-soft);
 }
-.map-placeholder .pin{color:var(--accent-deep);width:52px;height:52px;}
-.map-placeholder .ring{
-  position:absolute;width:180px;height:180px;border-radius:50%;border:2px dashed var(--primary);
-}
+.map-embed iframe{position:absolute;inset:0;width:100%;height:100%;border:0;}
 .area-list{margin-top:22px;display:flex;flex-wrap:wrap;gap:10px;}
 .area-tag{
   background:var(--bg-soft);color:var(--accent-deep);padding:8px 18px;border-radius:var(--radius-full);
@@ -764,9 +761,28 @@ h1,h2,h3,h4{line-height:1.5;font-weight:700;}
         </div>
         <a href="https://line.me/R/ti/p/@830swbyt" class="btn btn-secondary" style="margin-top:28px;">エリアを問い合わせる</a>
       </div>
-      <div class="map-placeholder reveal reveal-delay-2">
-        <span class="ring"></span>
-        <svg class="pin" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C7.6 2 4 5.6 4 10c0 6 8 12 8 12s8-6 8-12c0-4.4-3.6-8-8-8zm0 11a3 3 0 110-6 3 3 0 010 6z"/></svg>
+      <div class="map-embed reveal reveal-delay-2">
+        <!--
+          Googleマイマップ（無料・広告なし）で、戸田公園を中心とした半径5kmの円を描いた地図です。
+
+          【地図の作り方】
+          1) https://mymaps.google.com を開く（Googleアカウントでログイン）
+          2) 「新しい地図を作成」をクリック
+          3) 検索欄で「戸田公園」を検索し、地図の中心に表示させる
+          4) 左上のツールバーから「線を描画」→「円を描く」を選び、戸田公園の位置をクリック
+          5) 表示された円のサイズ（半径）を「5km」に設定する
+          6) 円やマーカーの色・デザインはお好みで調整
+          7) 左上のメニュー「≡」→「地図を共有」→ 一般公開に設定
+          8) 再度「≡」メニュー→「マップを埋め込む」をクリック
+          9) 表示されたiframeコードの中の src="..." のURL部分をコピー
+          10) 下のiframeのsrc=""の中身を、コピーしたURLに差し替える
+        -->
+        <iframe
+          src="https://www.google.com/maps/d/embed?mid=YOUR_MAP_ID"
+          title="対応エリアマップ（戸田公園から半径5km）"
+          loading="lazy"
+          allowfullscreen>
+        </iframe>
       </div>
     </div>
   </div>
@@ -1012,27 +1028,7 @@ h1,h2,h3,h4{line-height:1.5;font-weight:700;}
       <h2>お問い合わせ</h2>
       <p>まずはお気軽にご相談ください。LINEでのお問い合わせが一番スムーズです。</p>
     </div>
-    <div class="contact-layout">
-      <div class="reveal">
-        <div class="contact-quick">
-          <a href="#" class="quick-card">
-            <div class="qi"><svg class="icon" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 5.94 2 10.7c0 3.02 2 5.66 5 7.24-.13.5-.72 2.6-.82 3.02-.13.53.2.52.42.38.17-.11 2.7-1.83 3.8-2.58.83.12 1.7.18 2.6.18 5.52 0 10-3.94 10-8.7C23 5.94 18.52 2 12 2z"/></svg></div>
-            <div><div class="qt">LINEで相談する</div><div class="qv">https://line.me/R/ti/p/@830swbyt</div></div>
-          </a>
-          <div class="quick-card">
-            <div class="qi"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.5 2"/></svg></div>
-            <div><div class="qt">営業時間</div><div class="qv">9:00 〜 18:00（不定休）</div></div>
-          </div>
-        </div>
-        <a href="https://line.me/R/ti/p/@830swbyt" class="btn btn-line" style="width:100%;margin-bottom:24px;">
-          <svg class="icon" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 5.94 2 10.7c0 3.02 2 5.66 5 7.24-.13.5-.72 2.6-.82 3.02-.13.53.2.52.42.38.17-.11 2.7-1.83 3.8-2.58.83.12 1.7.18 2.6.18 5.52 0 10-3.94 10-8.7C23 5.94 18.52 2 12 2z"/></svg>
-          友だち追加してLINEで相談する
-        </a>
-        <a href="#area" class="map-placeholder" style="aspect-ratio:16/9;">
-          <span class="ring" style="width:140px;height:140px;"></span>
-          <svg class="pin" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C7.6 2 4 5.6 4 10c0 6 8 12 8 12s8-6 8-12c0-4.4-3.6-8-8-8zm0 11a3 3 0 110-6 3 3 0 010 6z"/></svg>
-        </a>
-      </div>
+
 
       <div class="contact-form reveal reveal-delay-2" style="text-align:center;">
         <div class="reason-icon" style="width:72px;height:72px;margin:0 auto 22px;background:var(--bg-soft);">
